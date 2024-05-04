@@ -1,6 +1,29 @@
 ---
 ja:
+  books:
+    create_success: 本の作成に成功しました。
+    update_success: 本の更新に成功しました。
+    destroy_success: 本の削除に成功しました。
+    book_index: 書籍一覧に戻る
+    book_new: 新しい本
+    book_show: この本を見る
+    book_edit: この本を編集
+    book_destroy: この本を削除
+    index:
+      title: 本の一覧
+    new:
+      title: 新しい本
+    edit:
+      title: 本の編集
   activerecord:
+    models:
+      book: 本
+    attributes:
+        book:
+          author: 著者
+          memo: メモ
+          picture: 写真
+          title: タイトル
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
