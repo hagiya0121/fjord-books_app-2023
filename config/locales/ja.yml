@@ -1,20 +1,21 @@
 ---
 ja:
+  defaults:
+    index: 一覧
+    new: 新規作成
+    show: 詳細
+    edit: 編集
+    destroy: 削除
+    create_success: "%{name}の作成に成功しました。"
+    update_success: "%{name}の更新に成功しました。"
+    destroy_success: "%{name}の削除に成功しました。"
   books:
-    create_success: 本の作成に成功しました。
-    update_success: 本の更新に成功しました。
-    destroy_success: 本の削除に成功しました。
-    book_index: 書籍一覧に戻る
-    book_new: 新しい本
-    book_show: この本を見る
-    book_edit: この本を編集
-    book_destroy: この本を削除
     index:
-      title: 本の一覧
+      book_title: 本の一覧
     new:
-      title: 新しい本
+      book_title: 新しい本
     edit:
-      title: 本の編集
+      book_title: 本の編集
   activerecord:
     models:
       book: 本
