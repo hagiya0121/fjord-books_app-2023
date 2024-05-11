@@ -1,0 +1,10 @@
+class UsersController < ApplicationController
+  def index
+    @users = User.order(:id).page(params[:page]).per(2)
+  end
+
+  def show
+    @user = User.find(params[:id])
+    @profile = @user.profile
+  end
+end
