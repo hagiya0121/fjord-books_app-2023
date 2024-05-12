@@ -27,6 +27,20 @@
   </div>
 
   <div class="field">
+    <%= f.fields_for :profile do |p| %>
+      <%= p.label :postal_code %><br />
+      <%= p.text_field :postal_code, autocomplete: "postal-code" %>
+
+      <%= p.label :address %><br />
+      <%= p.text_field :address %>
+
+      <%= p.label :self_introduction %><br />
+      <%= p.text_field :self_introduction %>
+    <% end %>
+  </div>
+
+
+  <div class="field">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>

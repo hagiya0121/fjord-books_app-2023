@@ -6,4 +6,7 @@
   <li>住所: <%= @profile.address %></li>
   <li>自己紹介: <%= @profile.self_introduction %></li>
 </ul>
+<% if allowed_user?(@user) %>
+  <nav class="page-nav"><%= link_to '編集', edit_user_registration_path %></nav>
+<% end %>
 

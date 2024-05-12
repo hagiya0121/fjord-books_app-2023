@@ -1,7 +1,10 @@
 <p style="color: green"><%= notice %></p>
 
 <h1><%= t('views.common.title_index', name: i18n_pluralize(Book.model_name.human)) %></h1>
-<nav class="page-nav"><%= link_to 'ログアウト', destroy_user_session_path, status: :see_other, method: :delete, data: { turbo_method: :delete, turbo_confirm: 'ログアウトしますか？' } %>
+<nav class="page-nav">
+  <%= link_to 'ユーザー一覧', users_path %>
+  <%= link_to 'ログアウト', destroy_user_session_path, status: :see_other, method: :delete, data: { turbo_method: :delete, turbo_confirm: 'ログアウトしますか？' } %>
+</nav>
 </nav>
 <div id="books" class="index-items">
   <% @books.each do |book| %>
