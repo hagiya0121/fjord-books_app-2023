@@ -1,12 +1,11 @@
-<h1>ユーザー詳細</h1>
-<ul>
-  <li>ID: <%= @user.id %></li>
-  <li>メールアドレス: <%= @user.email %></li>
-  <li>郵便番号: <%= @profile.postal_code %></li>
-  <li>住所: <%= @profile.address %></li>
-  <li>自己紹介: <%= @profile.self_introduction %></li>
+<h1><%= t('views.common.title_show', name: User.model_name.human) %></h1>
+<ul class="users-show">
+  <li><%= User.human_attribute_name(:id) %>: <%= @user.id %></li>
+  <li><%= User.human_attribute_name(:email) %>: <%= @user.email %></li>
+  <li><%= Profile.human_attribute_name(:postal_code) %>: <%= @profile.postal_code %></li>
+  <li><%= Profile.human_attribute_name(:address) %>: <%= @profile.address %></li>
+  <li><%= Profile.human_attribute_name(:self_introduction) %>: <%= @profile.self_introduction %></li>
 </ul>
 <% if allowed_user?(@user) %>
-  <nav class="page-nav"><%= link_to '編集', edit_user_registration_path %></nav>
+  <nav class="page-nav"><%= link_to t('views.common.title_edit', name: User.model_name.human), edit_user_registration_path %></nav>
 <% end %>
-

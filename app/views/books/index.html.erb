@@ -2,8 +2,8 @@
 
 <h1><%= t('views.common.title_index', name: i18n_pluralize(Book.model_name.human)) %></h1>
 <nav class="page-nav">
-  <%= link_to 'ユーザー一覧', users_path %>
-  <%= link_to 'ログアウト', destroy_user_session_path, status: :see_other, method: :delete, data: { turbo_method: :delete, turbo_confirm: 'ログアウトしますか？' } %>
+  <%= link_to t('views.common.title_index', name: User.model_name.human), users_path %>
+  <%= link_to t('views.common.logout'), destroy_user_session_path, status: :see_other, method: :delete, data: { turbo_method: :delete, turbo_confirm: t('views.common.delete_confirm') } %>
 </nav>
 </nav>
 <div id="books" class="index-items">

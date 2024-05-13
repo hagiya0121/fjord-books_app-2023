@@ -1,22 +1,22 @@
-<h1>ユーザー一覧</h1>
-  <table>
-    <thead>
+<h1><%= t('views.common.title_index', name: i18n_pluralize(User.model_name.human)) %></h1>
+<table class="users-index">
+  <thead>
+    <tr>
+      <th><%= User.human_attribute_name(:id) %></th>
+      <th><%= User.human_attribute_name(:email) %></th>
+      <th><%= User.human_attribute_name(:created_at) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
       <tr>
-        <th>ID</th>
-        <th>メールアドレス</th>
-        <th>登録日時</th>
+        <td><%= user.id %></td>
+        <td><%= link_to user.email, user %></td>
+        <td><%= user.created_at.strftime("%Y-%m-%d %H:%M") %></td>
       </tr>
-    </thead>
-    <tbody>
-      <% @users.each do |user| %>
-        <tr>
-          <td><%= user.id %></td>
-          <td><%= link_to user.email, user %></td>
-          <td><%= user.created_at.strftime("%Y-%m-%d %H:%M") %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+    <% end %>
+  </tbody>
+</table>
 
 <%= paginate @users %>
 
