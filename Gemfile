@@ -82,6 +82,7 @@ group :test do
   gem 'selenium-webdriver'
 end
 
+gem 'active_storage_validations'
 gem 'carrierwave'
 gem 'devise'
 gem 'devise-i18n'
