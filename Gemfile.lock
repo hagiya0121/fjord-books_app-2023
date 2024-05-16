@@ -330,6 +330,7 @@ DEPENDENCIES
   rubocop (~> 1.45.1)
   rubocop-fjord
   rubocop-rails
+  ruby-vips
   selenium-webdriver
   sprockets-rails
   sqlite3

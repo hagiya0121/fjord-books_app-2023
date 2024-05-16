@@ -20,6 +20,6 @@
 
 <div class="field">
   <%= f.label :icon %><br />
-  <%= image_tag @user.icon if @user.icon.attached? %>
+  <%= user_icon(@user) %>
   <%= f.file_field :icon %>
 </div>
