@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
   def index
-    @users = User.order(:id).page(params[:page])
+    @users = User.includes(icon_attachment: :blob).order(:id).page(params[:page])
   end
 
   def show
