@@ -319,24 +319,3 @@ form input[type="submit"] {
 form input[type="submit"]:hover {
   background-color: var(--global-primary-c-hover);
 }
-
-.users-index {
-  width: 100%;
-  border-collapse: collapse;
-}
-.users-index th, .users-index td {
-  border: 1px solid gray;
-  padding: 10px;
-  text-align: left;
-}
-
-.users-show {
-  list-style-type: none;
-  padding: 0;
-}
-
-.users-show li {
-  padding: 10px;
-  margin-bottom: 5px;
-  border: 1px solid gray;
-}

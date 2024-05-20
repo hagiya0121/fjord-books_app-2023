@@ -1,21 +1,23 @@
 <h1><%= t('views.common.title_index', name: i18n_pluralize(User.model_name.human)) %></h1>
-<table class="users-index">
-  <thead>
-    <tr>
-      <th><%= User.human_attribute_name(:id) %></th>
-      <th><%= User.human_attribute_name(:email) %></th>
-      <th><%= User.human_attribute_name(:created_at) %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
+<div class="index-items">
+  <table>
+    <thead>
       <tr>
-        <td><%= user.id %></td>
-        <td><%= link_to user.email, user %></td>
-        <td><%= user.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+        <th><%= User.human_attribute_name(:id) %></th>
+        <th><%= User.human_attribute_name(:email) %></th>
+        <th><%= User.human_attribute_name(:created_at) %></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= link_to user.email, user %></td>
+          <td><%= user.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <%= paginate @users %>

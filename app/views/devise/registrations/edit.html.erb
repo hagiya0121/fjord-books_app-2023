@@ -26,17 +26,19 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-    <div class="field">
-    <%= f.fields_for :profile do |p| %>
-      <%= p.label :postal_code %><br />
-      <%= p.text_field :postal_code, autocomplete: "postal-code" %>
+  <div class="field">
+    <%= f.label :postal_code %><br />
+    <%= f.text_field :postal_code, autocomplete: "postal-code" %>
+  </div>
 
-      <%= p.label :address %><br />
-      <%= p.text_field :address %>
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
 
-      <%= p.label :self_introduction %><br />
-      <%= p.text_field :self_introduction %>
-    <% end %>
+  <div class="field">
+    <%= f.label :self_introduction %><br />
+    <%= f.text_field :self_introduction %>
   </div>
 
   <div class="field">
