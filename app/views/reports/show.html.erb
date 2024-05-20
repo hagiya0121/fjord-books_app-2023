@@ -1,5 +1,5 @@
 <%= render @report %>
-
+<%= render 'comments/comment_form', commentable: @report, comment: @comment %>
 <div>
   <% if current_user == @report.user %>
   <%= link_to t('views.common.edit', name: Report.model_name.human), edit_report_path(@report) %> |

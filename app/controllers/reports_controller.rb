@@ -5,7 +5,10 @@ class ReportsController < ApplicationController
     @reports = Report.all
   end
 
-  def show; end
+  def show
+    @report = Report.find(params[:id])
+    @comment = @report.comments.build
+  end
 
   def new
     @report = Report.new
