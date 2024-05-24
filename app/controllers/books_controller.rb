@@ -12,6 +12,7 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @comment = @book.comments.build
+    @comments = Comment.where(commentable_id: @book.id).order(:id).page(params[:page])
   end
 
   # GET /books/new

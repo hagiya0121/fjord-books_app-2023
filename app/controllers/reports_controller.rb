@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ReportsController < ApplicationController
   before_action :set_report, only: %i[show edit update destroy]
 
@@ -8,6 +10,7 @@ class ReportsController < ApplicationController
   def show
     @report = Report.find(params[:id])
     @comment = @report.comments.build
+    @comments = Comment.where(commentable_id: @report.id).order(:id).page(params[:page])
   end
 
   def new
