@@ -10,7 +10,7 @@ class ReportsController < ApplicationController
   def show
     @report = Report.find(params[:id])
     @comment = @report.comments.build
-    @comments = Comment.where(commentable_id: @report.id).order(:id).page(params[:page])
+    @comments = @report.comments.order(:id).page(params[:page])
   end
 
   def new
