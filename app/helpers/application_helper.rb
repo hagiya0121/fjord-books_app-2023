@@ -14,4 +14,11 @@ module ApplicationHelper
   def i18n_error_count(count)
     I18n.locale == :ja ? "#{count}件の#{t('views.common.error')}" : pluralize(count, t('views.common.error'))
   end
+
+  def user_icon(user, size: [200, 200])
+    return unless user.icon.attached?
+
+    image_tag user.icon.variant(resize_to_fit: size, format: :jpeg,
+                                saver: { subsample_mode: 'on', strip: true, interlace: true, quality: 80 })
+  end
 end
