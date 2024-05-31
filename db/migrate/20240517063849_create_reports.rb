@@ -6,5 +6,6 @@ class CreateReports < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+    add_reference :reports, :user, null: false, foreign_key: true
   end
 end
