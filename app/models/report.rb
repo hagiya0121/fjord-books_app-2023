@@ -45,7 +45,7 @@ class Report < ApplicationRecord
     uris.map do |uri|
       uri = URI.parse(uri)
       pattern.match(uri.path).to_a[1].to_i if uri.host == TARGET_DOMAIN
-    end
+    end.uniq
   end
 
   def update_mentioning_reports(report_ids)

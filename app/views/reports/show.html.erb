@@ -16,3 +16,16 @@
     <%= button_to t('views.common.destroy', name: Report.model_name.human.downcase), @report, method: :delete %>
   <% end %>
 </nav>
+
+<h2><%= t('views.common.title_index', name: i18n_pluralize(MentionReport.model_name.human)) %></h2>
+
+<div id="reports" class="index-items">
+  <% @mentioned_reports.each do |report| %>
+    <div class="index-item">
+      <%= render report %>
+      <p>
+        <%= link_to t('views.common.show', name: Report.model_name.human.downcase), report %>
+      </p>
+    </div>
+  <% end %>
+</div>
