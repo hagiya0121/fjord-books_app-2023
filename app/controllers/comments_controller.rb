@@ -4,9 +4,12 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.user = current_user
-    return unless @comment.save
 
-    redirect_to @comment.commentable, notice: t('controllers.common.notice_create', name: Comment.model_name.human)
+    if @comment.save
+      redirect_to @comment.commentable, notice: t('controllers.common.notice_create', name: Comment.model_name.human)
+    else
+      redirect_to @comment.commentable, alert: t('activerecord.errors.messages.record_invalid', errors: @comment.errors.full_messages.join(','))
+    end
   end
 
   def destroy
