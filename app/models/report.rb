@@ -51,6 +51,6 @@ class Report < ApplicationRecord
   def update_mentioning_reports(report_ids)
     self.mentioning_reports = report_ids.map do |id|
       Report.find(id) if Report.exists?(id)
-    end
+    end.compact
   end
 end
