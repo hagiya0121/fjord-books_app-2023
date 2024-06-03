@@ -17,7 +17,11 @@ class ReportsController < ApplicationController
     @report = Report.new
   end
 
-  def edit; end
+  def edit
+    return if current_user == @report.user
+
+    redirect_to @report, alert: t('errors.messages.unauthorized')
+  end
 
   def create
     @report = current_user.reports.build(report_params)
@@ -30,7 +34,10 @@ class ReportsController < ApplicationController
   end
 
   def update
-    return unless current_user == @report.user
+    unless current_user == @report.user
+      redirect_to @report, alert: t('errors.messages.unauthorized')
+      return
+    end
 
     if @report.update(report_params)
       redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human)
@@ -40,10 +47,12 @@ class ReportsController < ApplicationController
   end
 
   def destroy
-    return unless current_user == @report.user
-
-    @report.destroy
-    redirect_to reports_url, notice: t('controllers.common.notice_destroy', name: Report.model_name.human), status: :see_other
+    if current_user == @report.user
+      @report.destroy
+      redirect_to reports_url, notice: t('controllers.common.notice_destroy', name: Report.model_name.human), status: :see_other
+    else
+      redirect_to @report, alert: t('errors.messages.unauthorized')
+    end
   end
 
   private
