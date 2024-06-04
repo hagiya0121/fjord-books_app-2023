@@ -1,0 +1,29 @@
+<h1><%= t('views.common.title_show', name: Report.model_name.human) %></h1>
+
+<div class="show-item">
+  <%= render @report %>
+</div>
+
+<div class="show-item">
+  <%= render 'comments/comment_form', commentable: @report, comment: @comment %>
+</div>
+
+<h2><%= t('views.common.title_index', name: Comment.model_name.human) %></h2>
+<div id="comments" class="index-items">
+  <% @comments.each do |comment| %>
+    <div class="index-item">
+      <%= render 'comments/comment', comment: comment %>
+    </div>
+  <% end %>
+</div>
+
+<%= paginate @comments %>
+
+<nav class="page-nav">
+  <% if current_user == @report.user %>
+  <%= button_to t('views.common.destroy', name: Report.model_name.human), @report, method: :delete %>
+  <%= link_to t('views.common.edit', name: Report.model_name.human), edit_report_path(@report) %> |
+  <% end %>
+  <%= link_to t('views.common.back', name: Report.model_name.human), reports_path %>
+
+</nav>

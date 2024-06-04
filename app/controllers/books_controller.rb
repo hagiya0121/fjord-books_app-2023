@@ -9,7 +9,11 @@ class BooksController < ApplicationController
   end
 
   # GET /books/1 or /books/1.json
-  def show; end
+  def show
+    @book = Book.find(params[:id])
+    @comment = @book.comments.build
+    @comments = @book.comments.order(:id).page(params[:page])
+  end
 
   # GET /books/new
   def new

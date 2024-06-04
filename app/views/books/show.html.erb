@@ -4,6 +4,21 @@
   <%= render @book %>
 </div>
 
+<div class="show-item">
+  <%= render 'comments/comment_form', commentable: @book, comment: @comment %>
+</div>
+
+<h2><%= t('views.common.title_index', name: Comment.model_name.human) %></h2>
+<div id="comments" class="index-items">
+  <% @comments.each do |comment| %>
+    <div class="index-item">
+      <%= render 'comments/comment', comment: comment %>
+    </div>
+  <% end %>
+</div>
+
+<%= paginate @comments %>
+
 <nav class="page-nav">
   <%= link_to t('views.common.edit', name: Book.model_name.human.downcase), edit_book_path(@book) %> |
   <%= link_to t('views.common.back', name: i18n_pluralize(Book.model_name.human.downcase)), books_path %>
