@@ -39,18 +39,25 @@ class Report < ApplicationRecord
 
   TARGET_DOMAIN = 'localhost'
 
-  def extract_report_ids
+  def update_mentioning_reports
     uris = URI.extract(content, %w[http https])
     pattern = %r{/reports/(\d+)}
-    uris.map do |uri|
+    report_ids = uris.map do |uri|
       uri = URI.parse(uri)
       pattern.match(uri.path).to_a[1].to_i if uri.host == TARGET_DOMAIN
     end.uniq
-  end
 
-  def update_mentioning_reports(report_ids)
     self.mentioning_reports = report_ids.map do |id|
       Report.find(id) if Report.exists?(id)
     end.compact
+  end
+
+  def save_with_report_update(params = {})
+    ActiveRecord::Base.transaction do
+      params.empty? ? save! : update!(params)
+      update_mentioning_reports
+    end
+  rescue ActiveRecord::RecordInvalid
+    false
   end
 end
