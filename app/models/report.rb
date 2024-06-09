@@ -46,10 +46,7 @@ class Report < ApplicationRecord
       uri = URI.parse(uri)
       pattern.match(uri.path).to_a[1].to_i if uri.host == TARGET_DOMAIN
     end.uniq
-
-    self.mentioning_reports = report_ids.map do |id|
-      Report.find(id) if Report.exists?(id)
-    end.compact
+    self.mentioning_reports = Report.where(id: report_ids)
   end
 
   def save_with_report_update(params = {})
