@@ -51,8 +51,7 @@ class Report < ApplicationRecord
 
   def save_with_report_update(params = {})
     ActiveRecord::Base.transaction do
-      params.empty? ? save! : update!(params)
-      update_mentioning_reports
+      update_mentioning_reports if params.empty? ? save : update(params)
     end
   rescue ActiveRecord::RecordInvalid
     false
