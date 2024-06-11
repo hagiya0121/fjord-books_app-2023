@@ -1,6 +1,11 @@
 alice:
   name: alice
   email: alice@example.com
+
 bob:
   name: bob
   email: bob@example.com
+
+user_without_name:
+  email: user_without_name@example.com
+
