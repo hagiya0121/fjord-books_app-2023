@@ -1,11 +1,9 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  user: one
-  title: MyString
-  content: MyText
-
-two:
-  user: two
-  title: MyString
-  content: MyText
+report_by_alice:
+  title: Alice is Report
+  content: Alice is Report
+  created_at: Thu, 06 Jun 2024 19:09:57.554957000 JST +09:00
+  user: alice
+report_by_bob:
+  title: Bob is Report
+  content: Bob is Report
+  user: bob
