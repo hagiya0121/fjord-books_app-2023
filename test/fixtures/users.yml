@@ -7,6 +7,10 @@ bob:
   name: bob
   email: bob@example.com
 
+carol:
+  name: carol
+  email: carol@example.com
+
 user_without_name:
   email: user_without_name@example.com
 

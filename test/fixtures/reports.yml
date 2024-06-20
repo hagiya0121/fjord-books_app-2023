@@ -7,3 +7,8 @@ report_by_bob:
   title: Bob is Report
   content: Bob is Report
   user: bob
+
+report_by_carol:
+  title: Carol is Report
+  content: Carol is Report
+  user: carol
