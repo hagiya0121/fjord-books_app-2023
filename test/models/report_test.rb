@@ -21,7 +21,8 @@ class ReportTest < ActiveSupport::TestCase
   end
 
   test '日報作成日時をDateオブジェクトに変換できる' do
-    assert_instance_of Date, @report_by_alice.created_on
+    @report_by_alice.created_at = '2024-06-12 15:23:13 +0900'
+    assert_equal '2024-06-12', @report_by_alice.created_on.to_s
   end
 
   test 'メンションした日報が保存される' do
