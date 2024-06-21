@@ -12,3 +12,8 @@ report_by_carol:
   title: Carol is Report
   content: Carol is Report
   user: carol
+
+report_by_dave:
+  title: Dave is Report
+  content: Dave is Report
+  user: dave
