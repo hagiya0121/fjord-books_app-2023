@@ -34,10 +34,11 @@ class ReportTest < ActiveSupport::TestCase
 
   test '日報更新時にメンションを保持、追加、削除できる' do
     @report_by_alice.content = "http://localhost:3000/reports/#{@report_by_bob.id}
-                                http://localhost:3000/reports/#{@report_by_dave.id}}"
+                                http://localhost:3000/reports/#{@report_by_dave.id}"
     @report_by_alice.update(title: 'Updated Title')
+    @report_by_alice.reload
     assert_includes @report_by_alice.mentioning_reports, @report_by_bob
     assert_includes @report_by_alice.mentioning_reports, @report_by_dave
-    assert_not_includes @report_by_alice.reload.mentioning_reports, @report_by_carol
+    assert_not_includes @report_by_alice.mentioning_reports, @report_by_carol
   end
 end
